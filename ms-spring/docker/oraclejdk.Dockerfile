@@ -1,0 +1,1 @@
+FROM serverjre:8
