@@ -1,0 +1,5 @@
+jpl:
+  apiKey: HiWUjKJpyDgK0FkDy2gB6LgzYE7wscOCYn5T4YiL
+  pageSize: 1000
+  baseUrl: https://api.nasa.gov/neo/rest/v1/neo/browse
+  pageCount: 50

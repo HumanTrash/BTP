@@ -1,9 +1,28 @@
 version: "3.7"
 services:
-  db:
-    image: postgres:9.4
+  db-spring:
+    image: postgres:alpine
+    restart: always
     volumes:
-      - db-data:/var/lib/postgresql/data
-    deploy:
-      placement:
-        constraints: [node.role == manager]
+      - db-spring-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: btpduser
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: btpdb
+  db-micronaut:
+    image: postgres:alpine
+    restart: always
+    volumes:
+      - db-micronaut-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: btpduser
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: btpdb
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9000:8080
+volumes:
+  db-spring-data:
+  db-micronaut-data:
