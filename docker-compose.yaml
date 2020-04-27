@@ -5,18 +5,22 @@ services:
     restart: always
     volumes:
       - db-spring-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_USER: btpduser
-      POSTGRES_PASSWORD: example
+      POSTGRES_USER: btpuser
+      POSTGRES_PASSWORD: btppgspringadmin
       POSTGRES_DB: btpdb
   db-micronaut:
     image: postgres:alpine
     restart: always
     volumes:
       - db-micronaut-data:/var/lib/postgresql/data
+    ports:
+    - "5433:5432"
     environment:
-      POSTGRES_USER: btpduser
-      POSTGRES_PASSWORD: example
+      POSTGRES_USER: btpuser
+      POSTGRES_PASSWORD: btppgmicronautadmin
       POSTGRES_DB: btpdb
   adminer:
     image: adminer

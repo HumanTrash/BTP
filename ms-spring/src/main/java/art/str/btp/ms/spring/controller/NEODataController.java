@@ -8,6 +8,7 @@ import art.str.btp.ms.spring.model.neo.NearEarthObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("neo")
 public class NEODataController {
 
     private final NEOResponseMapper mapper;
@@ -30,7 +32,7 @@ public class NEODataController {
         this.url = this.config.getBaseUrl() + "?size=" + this.config.getPageSize() + "&api_key=" + this.config.getApiKey();
     }
 
-    @GetMapping("neo/fetch-all")
+    @GetMapping("fetch-all")
     public List<NearEarthObject> fetchAll() {
         List<NearEarthObject> nearEarthObjects = new ArrayList<>();
         for (int i = 0; i < Integer.parseInt(this.config.getPageCount()); i++) {
@@ -43,7 +45,7 @@ public class NEODataController {
         return nearEarthObjects;
     }
 
-    @GetMapping("neo/fetch/{pageNum}")
+    @GetMapping("fetch/{pageNum}")
     public List<NearEarthObject> fetch(@PathVariable String pageNum) {
         try {
             Integer.parseInt(pageNum);

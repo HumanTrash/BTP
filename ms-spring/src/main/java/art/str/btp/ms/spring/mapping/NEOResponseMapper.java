@@ -13,10 +13,7 @@ import art.str.btp.ms.spring.model.neo.NearEarthObject;
 import art.str.btp.ms.spring.model.neo.data.OrbitalData;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
-import org.mapstruct.InjectionStrategy;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Named;
+import org.mapstruct.*;
 
 
 import java.text.ParseException;
@@ -32,7 +29,7 @@ public interface NEOResponseMapper {
     @Mapping(source = "is_sentry_object", target = "isSentryObject")
     @Mapping(source = "sentry_data", target = "sentryData")
     @Mapping(source = "name", target = "name")
-    @Mapping(source = "neo_reference_id", target = "referenceId")
+    @Mapping(source = "neo_reference_id", target = "id")
     @Mapping(source = "absolute_magnitude_h", target = "magnitude")
     @Mapping(source = "estimated_diameter", target = "estimatedDiameter", qualifiedByName = "mapEstimatedDiameter")
     @Mapping(source = "close_approach_data", target = "closeApproachData", qualifiedByName = "mapCloseApproachList")

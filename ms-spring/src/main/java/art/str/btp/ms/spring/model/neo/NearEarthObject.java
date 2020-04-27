@@ -4,17 +4,34 @@ import art.str.btp.ms.spring.model.neo.data.CloseApproachData;
 import art.str.btp.ms.spring.model.neo.data.EstimatedDiameter;
 import art.str.btp.ms.spring.model.neo.data.OrbitalData;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-public class NearEarthObject {
+@Entity
+@Table(name = "neo")
+public class NearEarthObject implements Serializable {
+    private static final long serialVersionUID = 1228935553335492296L;
+
+    @Id
+    private Long id;
+
     private Boolean isPotentiallyDangerous;
     private Boolean isSentryObject;
     private String sentryData;
     private String name;
     private Double magnitude;
-    private Integer referenceId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "estimatedDiameter_id")
     private EstimatedDiameter estimatedDiameter;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "oribtalData_id")
     private OrbitalData orbitalData;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "neo_id")
     private List<CloseApproachData> closeApproachData;
 
     public List<CloseApproachData> getCloseApproachData() {
@@ -65,12 +82,12 @@ public class NearEarthObject {
         this.magnitude = magnitude;
     }
 
-    public Integer getReferenceId() {
-        return referenceId;
+    public Long getId() {
+        return id;
     }
 
-    public void setReferenceId(Integer referenceId) {
-        this.referenceId = referenceId;
+    public void setId(Long referenceId) {
+        this.id = referenceId;
     }
 
     public EstimatedDiameter getEstimatedDiameter() {

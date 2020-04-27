@@ -1,8 +1,18 @@
 package art.str.btp.ms.spring.model.neo.data;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class OrbitalData {
+@Entity
+public class OrbitalData implements Serializable {
+    private static final long serialVersionUID = -3030883806071596265L;
+
+    @Id
+    @SequenceGenerator(name = "orbitalDataGen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orbitalDataGen")
+    private Long id;
+
     private Integer orbitId;
     private Date orbitDeterminationDate;
     private Date firstObservationDate;
@@ -27,6 +37,14 @@ public class OrbitalData {
     private String equinox;
     private Boolean isSentryObj;
     private NEOOrbit orbitType;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Integer getOrbitId() {
         return orbitId;
