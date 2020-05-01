@@ -11,6 +11,17 @@ services:
       POSTGRES_USER: btpuser
       POSTGRES_PASSWORD: btppgspringadmin
       POSTGRES_DB: btpdb
+  spring-openjdk:
+    build:
+      context: "./ms-spring/"
+      dockerfile: "docker/openjdk.Dockerfile"
+    ports:
+    - "7432:8080"
+  spring-oracle:
+    build:
+      context: "./ms-spring/"
+      dockerfile: "docker/oraclejdk.Dockerfile"
+    - "7433:8080"
   db-micronaut:
     image: postgres:alpine
     restart: always

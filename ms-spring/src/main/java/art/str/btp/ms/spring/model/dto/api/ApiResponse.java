@@ -7,6 +7,16 @@ public class ApiResponse {
     private DateTime timeStamp;
     private String message;
 
+    public ApiResponse() {
+        this.timeStamp = new DateTime();
+    }
+
+    public ApiResponse(String message, ApiOperationResultType resultType) {
+        this.timeStamp = new DateTime();
+        this.message = message;
+        this.resultType = resultType;
+    }
+
     public ApiOperationResultType getResultType() {
         return resultType;
     }
