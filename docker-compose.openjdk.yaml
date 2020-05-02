@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  spring-openjdk:
+    build:
+      context: "./ms-spring/"
+      dockerfile: "docker/openjdk.Dockerfile"
+    ports:
+    - "7432:8080"
+    - "9010:9010"

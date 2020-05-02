@@ -22,15 +22,15 @@ public class NearEarthObject implements Serializable {
     private String name;
     private Double magnitude;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "estimatedDiameter_id")
     private EstimatedDiameter estimatedDiameter;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "oribtalData_id")
     private OrbitalData orbitalData;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "neo_id")
     private List<CloseApproachData> closeApproachData;
 

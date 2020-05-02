@@ -31,6 +31,12 @@ public class StorageController {
         }
     }
 
+    @PostMapping("save")
+    public ApiResponse save(@RequestBody NearEarthObject nearEarthObject) {
+        NearEarthObject dbResponse = repository.save(nearEarthObject);
+        return new ApiResponse("Saved near earth object with ID: " + dbResponse.getId().toString(), ApiOperationResultType.SUCCESSFUL);
+    }
+
     @PatchMapping("update")
     public ApiResponse updateByID(@RequestBody NearEarthObject nearEarthObject) {
         NearEarthObject dbResponse = repository.save(nearEarthObject);
@@ -40,6 +46,7 @@ public class StorageController {
     @DeleteMapping("delete/{neoId}")
     public ApiResponse deleteNearEarthObjectById(@PathVariable Long neoId) {
          repository.deleteById(neoId);
+
          return new ApiResponse("Deleted near earth object with ID: " + neoId.toString(), ApiOperationResultType.SUCCESSFUL);
     }
 
