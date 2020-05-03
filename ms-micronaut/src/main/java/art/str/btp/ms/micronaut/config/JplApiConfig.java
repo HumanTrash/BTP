@@ -1,12 +1,8 @@
-package art.str.btp.ms.spring.config;
+package art.str.btp.ms.micronaut.config;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import io.micronaut.context.annotation.ConfigurationProperties;
 
-@Configuration
-@PropertySource("classpath:application.yaml")
-@ConfigurationProperties(prefix = "jpl")
+@ConfigurationProperties("jpl")
 public class JplApiConfig {
     private String apiKey;
     private String pageSize;

@@ -1,0 +1,29 @@
+micronaut:
+  application:
+    name: BTP-Micronaut
+jpl:
+  apiKey: HiWUjKJpyDgK0FkDy2gB6LgzYE7wscOCYn5T4YiL
+  pageSize: 1000
+  baseUrl: https://api.nasa.gov/neo/rest/v1/neo/browse
+  pageCount: 50
+jpa:
+  default:
+    packages-to-scan:
+      - "art.str.btp.ms.micronaut.model"
+#      - "art.str.btp.ms.micronaut.model.neo.data"
+#      - "art.str.btp.ms.micronaut.model.dto"
+#      - "art.str.btp.ms.micronaut.model.dto.api"
+#      - "art.str.btp.ms.micronaut.model.dto.measurements"
+#      - "art.str.btp.ms.micronaut.model.dto.misc"
+#      - "art.str.btp.ms.micronaut.model.common"
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: create
+        show_sql: true
+datasources:
+  default:
+    url: jdbc:postgresql://db-micronaut:5432/btpdb
+    username: btpuser
+    password: btppgmicronautadmin
+    driver-class-name: org.postgresql.Driver

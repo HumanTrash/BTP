@@ -1,8 +1,17 @@
 version: "3.7"
 services:
   spring-oracle:
+    container_name: "spring-oracle"
     build:
       context: "./ms-spring/"
+      dockerfile: "docker/oraclejdk.Dockerfile"
+    ports:
+      - "7432:8080"
+      - "9010:9010"
+  micronaut-oracle:
+    container_name: "micronaut-oracle"
+    build:
+      context: "./ms-micronaut"
       dockerfile: "docker/oraclejdk.Dockerfile"
     ports:
       - "7433:8080"

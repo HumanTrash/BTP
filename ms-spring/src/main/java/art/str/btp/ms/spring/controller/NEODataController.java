@@ -37,9 +37,6 @@ public class NEODataController {
         List<NearEarthObject> nearEarthObjects = new ArrayList<>();
         for (int i = 0; i < Integer.parseInt(this.config.getPageCount()); i++) {
             JPLResponse response = this.restTemplate.getForObject(this.url + "&page=" + i, JPLResponse.class);
-            if (response == null) {
-                throw new ApiException("Failed to retrieve data from JPL API");
-            }
             nearEarthObjects.addAll(this.mapper.mapResponseList(response.getNear_earth_objects()));
         }
         return nearEarthObjects;

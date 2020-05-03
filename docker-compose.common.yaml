@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   db-spring:
+    container_name: "db-spring"
     image: postgres:alpine
     restart: always
     volumes:
@@ -12,6 +13,7 @@ services:
       POSTGRES_PASSWORD: btppgspringadmin
       POSTGRES_DB: btpdb
   db-micronaut:
+    container_name: "db-micronaut"
     image: postgres:alpine
     restart: always
     volumes:
@@ -23,6 +25,7 @@ services:
       POSTGRES_PASSWORD: btppgmicronautadmin
       POSTGRES_DB: btpdb
   adminer:
+    container_name: "adminer"
     image: adminer
     restart: always
     ports:
