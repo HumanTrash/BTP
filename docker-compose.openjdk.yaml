@@ -15,4 +15,4 @@ services:
       dockerfile: "docker/openjdk.Dockerfile"
     ports:
       - "7433:8080"
-      - "9011:9010"
+      - "9011:9011"
