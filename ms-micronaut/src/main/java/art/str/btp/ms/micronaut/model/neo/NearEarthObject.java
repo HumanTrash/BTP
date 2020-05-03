@@ -4,6 +4,8 @@ package art.str.btp.ms.micronaut.model.neo;
 import art.str.btp.ms.micronaut.model.neo.data.CloseApproachData;
 import art.str.btp.ms.micronaut.model.neo.data.EstimatedDiameter;
 import art.str.btp.ms.micronaut.model.neo.data.OrbitalData;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,7 +33,8 @@ public class NearEarthObject implements Serializable {
     @JoinColumn(name = "oribtalData_id")
     private OrbitalData orbitalData;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "neo_id")
     private List<CloseApproachData> closeApproachData;
 

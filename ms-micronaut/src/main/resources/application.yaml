@@ -10,16 +10,10 @@ jpa:
   default:
     packages-to-scan:
       - "art.str.btp.ms.micronaut.model"
-#      - "art.str.btp.ms.micronaut.model.neo.data"
-#      - "art.str.btp.ms.micronaut.model.dto"
-#      - "art.str.btp.ms.micronaut.model.dto.api"
-#      - "art.str.btp.ms.micronaut.model.dto.measurements"
-#      - "art.str.btp.ms.micronaut.model.dto.misc"
-#      - "art.str.btp.ms.micronaut.model.common"
     properties:
       hibernate:
         hbm2ddl:
-          auto: create
+          auto: create-drop
         show_sql: true
 datasources:
   default:

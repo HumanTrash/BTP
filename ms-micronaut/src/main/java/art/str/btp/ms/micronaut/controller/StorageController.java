@@ -43,12 +43,12 @@ public class StorageController {
 
     @Patch("update")
     public ApiResponse updateByID(@Body NearEarthObject nearEarthObject) {
-        NearEarthObject dbResponse = repository.save(nearEarthObject);
+        NearEarthObject dbResponse = repository.update(nearEarthObject);
         return new ApiResponse("Updated near earth object with ID: " + dbResponse.getId().toString(), ApiOperationResultType.SUCCESSFUL);
     }
 
     @Delete("delete/{neoId}")
-    public ApiResponse deleteNearEarthObjectById(Long neoId) {
+    public ApiResponse deleteNearEarthObjectById(@PathVariable Long neoId) {
         repository.deleteById(neoId);
 
         return new ApiResponse("Deleted near earth object with ID: " + neoId.toString(), ApiOperationResultType.SUCCESSFUL);

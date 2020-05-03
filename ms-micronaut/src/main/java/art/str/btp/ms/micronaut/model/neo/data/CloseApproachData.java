@@ -2,6 +2,8 @@ package art.str.btp.ms.micronaut.model.neo.data;
 
 import art.str.btp.ms.micronaut.model.common.MissDistance;
 import art.str.btp.ms.micronaut.model.neo.NearEarthObject;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
@@ -30,7 +32,8 @@ public class CloseApproachData implements Serializable {
     @JoinColumn(name = "missDistance_id")
     private MissDistance missDistance;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private NearEarthObject nearEarthObject;
 
     public Long getId() {
