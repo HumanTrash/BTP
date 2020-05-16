@@ -4,7 +4,7 @@ services:
     container_name: "spring-oracle"
     build:
       context: "./ms-spring/"
-      dockerfile: "docker/oraclejdk.Dockerfile"
+      dockerfile: "docker/openjdk11.Dockerfile"
     ports:
       - "7432:8080"
       - "9010:9010"
@@ -12,7 +12,7 @@ services:
     container_name: "micronaut-oracle"
     build:
       context: "./ms-micronaut"
-      dockerfile: "docker/oraclejdk.Dockerfile"
+      dockerfile: "docker/openjdk11.Dockerfile"
     ports:
       - "7433:8080"
       - "9011:9011"

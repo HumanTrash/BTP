@@ -58,18 +58,13 @@
             <version>${io.micronaut.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.micronaut</groupId>
-            <artifactId>micronaut-validation</artifactId>
-            <version>${io.micronaut.version}</version>
-        </dependency>
-        <dependency>
             <groupId>io.micronaut.data</groupId>
-            <artifactId>micronaut-data-model</artifactId>
+            <artifactId>micronaut-data-hibernate-jpa</artifactId>
             <version>${io.micronaut.data.version}</version>
         </dependency>
         <dependency>
             <groupId>io.micronaut.data</groupId>
-            <artifactId>micronaut-data-hibernate-jpa</artifactId>
+            <artifactId>micronaut-data-model</artifactId>
             <version>${io.micronaut.data.version}</version>
         </dependency>
         <dependency>
@@ -79,7 +74,7 @@
         </dependency>
         <dependency>
             <groupId>io.micronaut.configuration</groupId>
-            <artifactId>micronaut-jdbc-tomcat</artifactId>
+            <artifactId>micronaut-jdbc-hikari</artifactId>
             <version>${io.micronaut.config.version}</version>
         </dependency>
         <dependency>
@@ -149,11 +144,30 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-toolchains-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>toolchain</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <toolchains>
+                        <jdk>
+                            <version>${jdk.version}</version>
+                        </jdk>
+                    </toolchains>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
                     <encoding>UTF-8</encoding>
                     <compilerArgs>
                         <arg>-parameters</arg>

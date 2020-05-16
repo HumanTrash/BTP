@@ -21,3 +21,4 @@ datasources:
     username: btpuser
     password: btppgmicronautadmin
     driver-class-name: org.postgresql.Driver
+    maximum-pool-size: 10
