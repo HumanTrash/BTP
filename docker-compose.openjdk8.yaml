@@ -1,18 +1,18 @@
 version: "3.7"
 services:
-  spring-openjdk:
-    container_name: "spring-openjdk"
+  spring-openjdk8:
+    container_name: "spring-openjdk8"
     build:
       context: "./ms-spring/"
       dockerfile: "docker/openjdk8.Dockerfile"
     ports:
       - "7432:8080"
-      - "9010:9010"
-  micronaut-openjdk:
-    container_name: "micronaut-openjdk"
+      - "10001:10001"
+  micronaut-openjdk8:
+    container_name: "micronaut-openjdk8"
     build:
       context: "./ms-micronaut"
       dockerfile: "docker/openjdk8.Dockerfile"
     ports:
       - "7433:8080"
-      - "9011:9011"
+      - "10002:10001"

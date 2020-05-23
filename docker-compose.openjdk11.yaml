@@ -1,18 +1,18 @@
 version: "3.7"
 services:
-  spring-oracle:
-    container_name: "spring-oracle"
+  spring-openjdk11:
+    container_name: "spring-openjdk11"
     build:
       context: "./ms-spring/"
       dockerfile: "docker/openjdk11.Dockerfile"
     ports:
-      - "7432:8080"
-      - "9010:9010"
-  micronaut-oracle:
-    container_name: "micronaut-oracle"
+      - "7434:8080"
+      - "10003:10001"
+  micronaut-openjdk11:
+    container_name: "micronaut-openjdk11"
     build:
       context: "./ms-micronaut"
       dockerfile: "docker/openjdk11.Dockerfile"
     ports:
-      - "7433:8080"
-      - "9011:9011"
+      - "7435:8080"
+      - "10004:10001"
